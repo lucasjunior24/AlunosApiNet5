@@ -3,15 +3,17 @@ using System;
 using AlunosApi.Configuration.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace AlunosApi.Migrations
 {
     [DbContext(typeof(ApiAlunosContext))]
-    partial class ApiAlunosContextModelSnapshot : ModelSnapshot
+    [Migration("20211107040334_autenticacao")]
+    partial class autenticacao
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

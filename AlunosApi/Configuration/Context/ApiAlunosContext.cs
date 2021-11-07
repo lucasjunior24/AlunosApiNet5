@@ -1,9 +1,11 @@
 ﻿using AlunosApi.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace AlunosApi.Configuration.Context
 {
-    public class ApiAlunosContext : DbContext
+    public class ApiAlunosContext : IdentityDbContext<IdentityUser>
     {
         public ApiAlunosContext(DbContextOptions<ApiAlunosContext> options) : base(options)
         {
@@ -11,6 +13,7 @@ namespace AlunosApi.Configuration.Context
         public DbSet<Aluno> Alunos { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            base.OnModelCreating(builder);
             builder.Entity<Aluno>().HasData(
                 new Aluno
                 {
